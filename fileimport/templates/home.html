@@ -1,0 +1,28 @@
+<h1>Ewha English Class Information</h1>
+
+<div>
+<form action="{% url 'filter' %}" method = 'get'>
+    <button type = "submit" name = "classification" value = "Liberal Arts Courses"> Liberal Arts Courses </button>
+</form>
+<form action="{% url 'filter' %}" method = 'get'>
+    <button type = "submit" name = "classification" value = "Major foundation"> Major foundation </button>
+</form>
+<form action="{% url 'filter' %}" method = 'get'>
+    <button type = "submit" name = "classification" value = "Major elective"> Major elective </button>
+</form>
+<form action="{% url 'filter' %}" method = 'get'>
+    <button type = "submit" name = "classification" value = "Major requisite"> Major requisite </button>
+</form>
+
+    {% for class in classes.all %}
+        <div>
+            <p>course no : {{class.courseno}}</p>
+            <p>class no : {{class.classno}}</p>
+            <p>title : {{class.title}}</p>
+            <p>classification : {{class.classification}}</p>
+            <p>instructor : {{class.instructor}}</p>
+            <p>credit : {{class.credit}}</p>
+            <p>hour : {{class.hour}}</p>
+            <hr>
+        </div>
+    {% endfor %}
